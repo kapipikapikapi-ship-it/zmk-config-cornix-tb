@@ -1,0 +1,31 @@
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: hitsmaxft
+      url-base: https://github.com/hitsmaxft
+    - name: sekigon-gonnoc
+      url-base: https://github.com/sekigon-gonnoc
+    - name: urob
+      url-base: https://github.com/urob
+    - name: caksoylar
+      url-base: https://github.com/caksoylar
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
+    - name: zmk-keyboard-cornix
+      remote: hitsmaxft
+      revision: main
+    - name: zmk-driver-paw3222
+      remote: sekigon-gonnoc
+      revision: main
+    - name: zmk-helpers
+      remote: urob
+      revision: main
+    - name: zmk-rgbled-widget
+      remote: hitsmaxft
+      revision: main
+  self:
+    path: config
