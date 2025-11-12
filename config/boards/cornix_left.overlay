@@ -1,6 +1,12 @@
 // Split input configuration (central side - receives trackball data from peripheral)
 #include <dt-bindings/zmk/input_transform.h>
 
+&zephyr_udc0 {
+    cdc_acm_uart0: cdc_acm_uart0 {
+        compatible = "zephyr,cdc-acm-uart";
+    };
+};
+
 /{
     split_inputs {
         #address-cells = <1>;
@@ -23,7 +29,11 @@
             layers = <3>;
             input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
                                <&zip_xy_to_scroll_mapper>,
-                               <&zip_scroll_scaler 1 10>;
+                               <&zip_scroll_scaler 1 12>;
         };
+    };
+
+    chosen {
+        zephyr,console = &cdc_acm_uart0;
     };
 };
